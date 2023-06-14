@@ -25,20 +25,32 @@ public class CreditAccountTest {
                 5_000,
                 15
         );
-
         account.add(3_000);
 
         Assertions.assertEquals(4_000, account.getBalance());
     }
 
     @Test
-    public void shouldAddAmountToBalanceLower0() {
+    public void shouldTestPay() {
         CreditAccount account = new CreditAccount(
-                -1_000,
+                0,
                 5_000,
                 15
         );
 
+        account.pay(1_000);
+
+        Assertions.assertEquals(-1_000, account.getBalance());
+    }
+
+    @Test
+    public void shouldAddAmountToBalanceLower0() {
+        CreditAccount account = new CreditAccount(
+                0,
+                5_000,
+                15
+        );
+        account.pay(1000);
         account.add(3_000);
 
         Assertions.assertEquals(2_000, account.getBalance());
@@ -86,14 +98,38 @@ public class CreditAccountTest {
     @Test
     public void shouldReduceBalance() {
         CreditAccount account = new CreditAccount(
-                2_000,
+                0,
                 5_000,
                 15
         );
-
+        account.add(2000);
         account.pay(500);
 
         Assertions.assertEquals(1_500, account.getBalance());
+    }
+
+    @Test
+    public void shouldTestRate(){
+        CreditAccount account = new CreditAccount(
+                0,
+                5_000,
+                15
+        );
+        account.pay(2000);
+
+        Assertions.assertEquals(-300, account.yearChange());
+    }
+
+    @Test
+    public void shouldReturn0BecausePositiveBalance(){
+        CreditAccount account = new CreditAccount(
+                0,
+                5_000,
+                15
+        );
+        account.add(2000);
+
+        Assertions.assertEquals(0, account.yearChange());
     }
 
 }
