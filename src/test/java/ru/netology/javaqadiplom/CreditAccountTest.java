@@ -21,6 +21,17 @@ public class CreditAccountTest {
     }
 
     @Test
+    public void shouldReturnFalseIfNegativeAmount() {
+        CreditAccount account = new CreditAccount(
+                0,
+                5_000,
+                15
+        );
+
+        Assertions.assertEquals(false,  account.add(-3_000));
+    }
+
+    @Test
     public void shouldAddToBalanceHigher0() {
         CreditAccount account = new CreditAccount(
                 1_000,
