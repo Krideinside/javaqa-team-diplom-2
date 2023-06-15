@@ -5,6 +5,8 @@ import org.junit.jupiter.api.Test;
 
 public class CreditAccountTest {
 
+    ///////////////////////////////МЕТОД ADD//////////////////////////////////////
+
     @Test
     public void shouldAddToPositiveBalance() {
         CreditAccount account = new CreditAccount(
@@ -31,19 +33,6 @@ public class CreditAccountTest {
     }
 
     @Test
-    public void shouldTestPay() {
-        CreditAccount account = new CreditAccount(
-                0,
-                5_000,
-                15
-        );
-
-        account.pay(1_000);
-
-        Assertions.assertEquals(-1_000, account.getBalance());
-    }
-
-    @Test
     public void shouldAddAmountToBalanceLower0() {
         CreditAccount account = new CreditAccount(
                 0,
@@ -56,42 +45,52 @@ public class CreditAccountTest {
         Assertions.assertEquals(2_000, account.getBalance());
     }
 
-     @Test
-    public void shouldThrowExceptionAboutNegativeInitialBalance() {
-        CreditAccount account = new CreditAccount(
-                -1_000,
-                5_000,
-                15
-        );
-
-        Assertions.assertThrows(IllegalArgumentException.class, () -> {
-            account.add(3_000);
-        });
-    }
+    //////////////////////////////////////МЕТОД PAY/////////////////////////////////////
 
     @Test
-    public void shouldThrowExceptionAboutNegativeCreditLimit() {
-        CreditAccount account = new CreditAccount(
-                0,
-                -5_000,
-                15
-        );
-
-        Assertions.assertThrows(IllegalArgumentException.class, () -> {
-            account.add(3_000);
-        });
-    }
-
-    @Test
-    public void shouldReturnFalseBecausePayOverLimit() {
+    public void shouldPay1_000() {
         CreditAccount account = new CreditAccount(
                 0,
                 5_000,
                 15
         );
 
-        account.pay(6_000);
+        account.pay(1_000);
 
+        Assertions.assertEquals(-1_000, account.getBalance());
+    }
+
+    @Test
+    public void shouldReturnFalseIfPayWithNegativeAmount() {
+        CreditAccount account = new CreditAccount(
+                0,
+                5_000,
+                15
+        );
+
+        Assertions.assertEquals(false, account.pay(-1_000));
+    }
+
+    @Test
+    public void shouldReturnFalseIfPay0() {
+        CreditAccount account = new CreditAccount(
+                0,
+                5_000,
+                15
+        );
+
+        Assertions.assertEquals(false, account.pay(0));
+    }
+
+    @Test
+    public void shouldReturnFalseAndNotTouchingBalanceIfPayHigherThenCreditLimit() {
+        CreditAccount account = new CreditAccount(
+                0,
+                5_000,
+                15
+        );
+
+        Assertions.assertEquals(false, account.pay(6_000));
         Assertions.assertEquals(0, account.getBalance());
     }
 
@@ -108,8 +107,45 @@ public class CreditAccountTest {
         Assertions.assertEquals(1_500, account.getBalance());
     }
 
+    //////////////////////////////INITIAL EXCEPTIONS////////////////////////////////////////
+
     @Test
-    public void shouldTestRate(){
+    public void shouldThrowExceptionAboutNegativeInitialBalance() {
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            CreditAccount account = new CreditAccount(
+                    -1_000,
+                    5_000,
+                    15
+            );
+        });
+    }
+
+    @Test
+    public void shouldThrowExceptionAboutNegativeCreditLimit() {
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            CreditAccount account = new CreditAccount(
+                    0,
+                    -5_000,
+                    15
+            );
+        });
+    }
+
+    @Test
+    public void shouldThrowExceptionAboutNegativeRate() {
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            CreditAccount account = new CreditAccount(
+                    0,
+                    5_000,
+                    -15
+            );
+        });
+    }
+
+    //////////////////////////////////////////МЕТОД RATE//////////////////////////////////////
+    
+    @Test
+    public void shouldTestRate() {
         CreditAccount account = new CreditAccount(
                 0,
                 5_000,
@@ -121,7 +157,7 @@ public class CreditAccountTest {
     }
 
     @Test
-    public void shouldReturn0BecausePositiveBalance(){
+    public void shouldReturn0BecausePositiveBalance() {
         CreditAccount account = new CreditAccount(
                 0,
                 5_000,
@@ -131,5 +167,4 @@ public class CreditAccountTest {
 
         Assertions.assertEquals(0, account.yearChange());
     }
-
 }
