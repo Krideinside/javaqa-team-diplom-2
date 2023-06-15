@@ -59,7 +59,7 @@ public class CreditAccountTest {
     //////////////////////////////////////МЕТОД PAY/////////////////////////////////////
 
     @Test
-    public void shouldPay1_000() {
+    public void shouldPayWithBalance0() {
         CreditAccount account = new CreditAccount(
                 0,
                 5_000,
@@ -72,7 +72,7 @@ public class CreditAccountTest {
     }
 
     @Test
-    public void shouldPayWithPositiveBalance() {
+    public void shouldPayWithBalanceHigher0() {
         CreditAccount account = new CreditAccount(
                 1_000,
                 5_000,
