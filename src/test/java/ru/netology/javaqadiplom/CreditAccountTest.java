@@ -21,7 +21,7 @@ public class CreditAccountTest {
     }
 
     @Test
-    public void shouldAddAmountToBalanceHigher0() {
+    public void shouldAddToBalanceHigher0() {
         CreditAccount account = new CreditAccount(
                 1_000,
                 5_000,
@@ -33,7 +33,7 @@ public class CreditAccountTest {
     }
 
     @Test
-    public void shouldAddAmountToBalanceLower0() {
+    public void shouldAddToBalanceLower0() {
         CreditAccount account = new CreditAccount(
                 0,
                 5_000,
@@ -58,6 +58,33 @@ public class CreditAccountTest {
         account.pay(1_000);
 
         Assertions.assertEquals(-1_000, account.getBalance());
+    }
+
+    @Test
+    public void shouldPayWithPositiveBalance() {
+        CreditAccount account = new CreditAccount(
+                1_000,
+                5_000,
+                15
+        );
+
+        account.pay(2_000);
+
+        Assertions.assertEquals(-1_000, account.getBalance());
+    }
+
+    @Test
+    public void shouldPayWithNegativeBalance() {
+        CreditAccount account = new CreditAccount(
+                0,
+                5_000,
+                15
+        );
+
+        account.pay(1_000);
+        account.pay(2_000);
+
+        Assertions.assertEquals(-3_000, account.getBalance());
     }
 
     @Test
@@ -143,7 +170,7 @@ public class CreditAccountTest {
     }
 
     //////////////////////////////////////////МЕТОД RATE//////////////////////////////////////
-    
+
     @Test
     public void shouldTestRate() {
         CreditAccount account = new CreditAccount(
