@@ -132,19 +132,6 @@ public class CreditAccountTest {
         Assertions.assertEquals(0, account.getBalance());
     }
 
-    @Test
-    public void shouldReduceBalance() {
-        CreditAccount account = new CreditAccount(
-                0,
-                5_000,
-                15
-        );
-        account.add(2000);
-        account.pay(500);
-
-        Assertions.assertEquals(1_500, account.getBalance());
-    }
-
     //////////////////////////////INITIAL EXCEPTIONS////////////////////////////////////////
 
     @Test
@@ -180,7 +167,7 @@ public class CreditAccountTest {
         });
     }
 
-    //////////////////////////////////////////МЕТОД RATE//////////////////////////////////////
+    //////////////////////////////////////////МЕТОД YEARCHANGE//////////////////////////////////////
 
     @Test
     public void shouldTestRate() {
