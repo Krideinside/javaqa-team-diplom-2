@@ -184,12 +184,11 @@ public class CreditAccountTest {
     @Test
     public void shouldReturn0BecausePositiveBalance() {
         CreditAccount account = new CreditAccount(
-                0,
+                1_000,
                 5_000,
                 15
         );
-        account.add(2000);
-        
+
         Assertions.assertEquals(0, account.yearChange());
     }
 }
