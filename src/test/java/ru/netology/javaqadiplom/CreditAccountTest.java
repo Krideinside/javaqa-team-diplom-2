@@ -189,7 +189,7 @@ public class CreditAccountTest {
                 15
         );
         account.add(2000);
-
+        
         Assertions.assertEquals(0, account.yearChange());
     }
 }
