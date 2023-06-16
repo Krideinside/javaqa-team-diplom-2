@@ -85,7 +85,7 @@ public class CreditAccountTest {
     }
 
     @Test
-    public void shouldPayWithNegativeBalance() {
+    public void shouldPayWithBalanceLower0() {
         CreditAccount account = new CreditAccount(
                 0,
                 5_000,
