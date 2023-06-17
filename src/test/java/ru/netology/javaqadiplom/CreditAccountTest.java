@@ -170,7 +170,7 @@ public class CreditAccountTest {
     //////////////////////////////////////////МЕТОД YEARCHANGE//////////////////////////////////////
 
     @Test
-    public void shouldTestRate() {
+    public void shouldCalcYearChange() {
         CreditAccount account = new CreditAccount(
                 0,
                 5_000,
@@ -179,6 +179,18 @@ public class CreditAccountTest {
         account.pay(2000);
 
         Assertions.assertEquals(-300, account.yearChange());
+    }
+
+    @Test
+    public void shouldCalcYearChangeWhenBalanceLower100() {
+        CreditAccount account = new CreditAccount(
+                0,
+                5_000,
+                15
+        );
+        account.pay(80);
+
+        Assertions.assertEquals(-12, account.yearChange());
     }
 
     @Test
