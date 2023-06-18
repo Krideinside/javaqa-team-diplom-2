@@ -107,6 +107,8 @@ public class CreditAccount extends Account {
 
     public void setCreditLimit(int creditLimit) {
         if (creditLimit > 0) {
-            this.creditLimit = creditLimi
+            this.creditLimit = creditLimit;
+        }
+    }
 
 }
