@@ -14,7 +14,6 @@ public class CreditAccountTest {
                 5_000,
                 15
         );
-
         account.add(3_000);
 
         Assertions.assertEquals(3_000, account.getBalance());
@@ -65,7 +64,6 @@ public class CreditAccountTest {
                 5_000,
                 15
         );
-
         account.pay(1_000);
 
         Assertions.assertEquals(-1_000, account.getBalance());
@@ -78,7 +76,6 @@ public class CreditAccountTest {
                 5_000,
                 15
         );
-
         account.pay(2_000);
 
         Assertions.assertEquals(-1_000, account.getBalance());
@@ -91,7 +88,6 @@ public class CreditAccountTest {
                 5_000,
                 15
         );
-
         account.pay(1_000);
         account.pay(2_000);
 
@@ -139,7 +135,6 @@ public class CreditAccountTest {
                 5_000,
                 15
         );
-
         account.pay(5_000);
 
         Assertions.assertEquals(-5_000, account.getBalance());
