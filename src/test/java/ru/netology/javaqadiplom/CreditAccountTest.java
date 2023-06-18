@@ -216,4 +216,45 @@ public class CreditAccountTest {
 
         Assertions.assertEquals(0, account.yearChange());
     }
+
+
+    //////////////////////////////////////ACCOUNT RATE////////////////////////////////////
+
+    @Test
+    public void shouldGetRate() {
+        CreditAccount account = new CreditAccount(
+                0,
+                5_000,
+                15
+        );
+        account.pay(1_000);
+
+        Assertions.assertEquals(15, account.getRate());
+    }
+
+    @Test
+    public void shouldSetRate() {
+        CreditAccount account = new CreditAccount(
+                0,
+                5,
+                15
+        );
+        account.pay(1_000);
+        account.setRate(5);
+
+        Assertions.assertEquals(5, account.getRate());
+    }
+
+    @Test
+    public void shouldReturnFalseIfSetNegativeRate() {
+        CreditAccount account = new CreditAccount(
+                0,
+                5,
+                15
+        );
+        account.pay(1_000);
+        account.setRate(-5);
+
+        Assertions.assertEquals(false, account.getRate());
+    }
 }
