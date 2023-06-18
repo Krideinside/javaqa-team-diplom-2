@@ -197,10 +197,11 @@ public class CreditAccountTest {
     @Test
     public void shouldCalcYearChangeWhenBalanceLower100() {
         CreditAccount account = new CreditAccount(
-                80,
+                0,
                 5_000,
                 15
         );
+        account.pay(80);
 
         Assertions.assertEquals(-12, account.yearChange());
     }
