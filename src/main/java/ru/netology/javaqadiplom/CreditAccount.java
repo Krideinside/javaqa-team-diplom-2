@@ -30,7 +30,7 @@ public class CreditAccount extends Account {
         }
         if (rate < 0) {
             throw new IllegalArgumentException(
-                    "Накопительная ставка не может быть отрицательной, а у вас: " + rate
+                    "Ставка кредитования не может быть отрицательной, а у вас: " + rate
             );
         }
         this.balance = initialBalance;
@@ -111,7 +111,7 @@ public class CreditAccount extends Account {
             this.rate = rate;
         } else {
             throw new IllegalArgumentException(
-                    "Накопительная ставка не может быть отрицательной, а у вас: " + rate
+                    "Ставка кредитованмия не может быть отрицательной, а у вас: " + rate
             );
         }
     }
