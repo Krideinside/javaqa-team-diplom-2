@@ -106,8 +106,12 @@ public class CreditAccount extends Account {
     }
 
     public void setCreditLimit(int creditLimit) {
-        if (creditLimit > 0) {
+        if (creditLimit >= 0) {
             this.creditLimit = creditLimit;
+        } else {
+            throw new IllegalArgumentException(
+                    "Кредитный лимит не может быть отрицательным, а у вас: " + creditLimit
+            );
         }
     }
 

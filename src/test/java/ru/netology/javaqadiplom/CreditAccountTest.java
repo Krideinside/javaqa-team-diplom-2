@@ -252,4 +252,56 @@ public class CreditAccountTest {
 
         Assertions.assertEquals(15, account.getRate());
     }
+
+
+    ///////////////////////////////CREDIT LIMIT///////////////////////////////////////
+
+    @Test
+    public void shouldGetCreditLimit() {
+        CreditAccount account = new CreditAccount(
+                0,
+                5_000,
+                15
+        );
+
+        Assertions.assertEquals(5_000, account.getCreditLimit());
+    }
+
+    @Test
+    public void shouldSetPositiveCreditLimit() {
+        CreditAccount account = new CreditAccount(
+                0,
+                5_000,
+                15
+        );
+        account.setCreditLimit(15_000);
+
+        Assertions.assertEquals(15_000, account.getCreditLimit());
+    }
+
+    @Test
+    public void shouldThrowExceptionIFSetNegativeCreditLimit() {
+        CreditAccount account = new CreditAccount(
+                0,
+                5_000,
+                15
+        );
+
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            account.setCreditLimit(-15_000);
+        });
+    }
+
+    @Test
+    public void shouldSet0CreditLimit() {
+        CreditAccount account = new CreditAccount(
+                0,
+                5_000,
+                15
+        );
+        account.setCreditLimit(0);
+
+        Assertions.assertEquals(0, account.getCreditLimit());
+    }
 }
+
