@@ -28,7 +28,7 @@ public class CreditAccountTest {
                 15
         );
 
-        Assertions.assertEquals(false,  account.add(-3_000));
+        Assertions.assertEquals(false, account.add(-3_000));
     }
 
     @Test
@@ -249,12 +249,12 @@ public class CreditAccountTest {
     public void shouldReturnFalseIfSetNegativeRate() {
         CreditAccount account = new CreditAccount(
                 0,
-                5,
+                5_000,
                 15
         );
         account.pay(1_000);
         account.setRate(-5);
 
-        Assertions.assertEquals(false, account.getRate());
+        Assertions.assertEquals(15, account.getRate());
     }
 }
