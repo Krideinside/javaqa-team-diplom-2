@@ -213,7 +213,7 @@ public class CreditAccountTest {
     }
 
 
-    //////////////////////////////////////ACCOUNT RATE////////////////////////////////////
+    //////////////////////////////////////////RATE////////////////////////////////////
 
     @Test
     public void shouldGetRate() {
@@ -241,18 +241,30 @@ public class CreditAccountTest {
     }
 
     @Test
-    public void shouldReturnFalseIfSetNegativeRate() {
+    public void shouldSe0Rate() {
+        CreditAccount account = new CreditAccount(
+                0,
+                5,
+                15
+        );
+        account.pay(1_000);
+        account.setRate(0);
+
+        Assertions.assertEquals(0, account.getRate());
+    }
+
+    @Test
+    public void shouldThrowExceptionIfSetNegativeRate() {
         CreditAccount account = new CreditAccount(
                 0,
                 5_000,
                 15
         );
-        account.pay(1_000);
-        account.setRate(-5);
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            account.setRate(-5);
+        });
 
-        Assertions.assertEquals(15, account.getRate());
     }
-
 
     ///////////////////////////////CREDIT LIMIT///////////////////////////////////////
 

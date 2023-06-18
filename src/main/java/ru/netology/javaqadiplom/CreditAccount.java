@@ -105,6 +105,17 @@ public class CreditAccount extends Account {
         return creditLimit;
     }
 
+    @Override
+    public void setRate(int rate) {
+        if (rate >= 0) {
+            this.rate = rate;
+        } else {
+            throw new IllegalArgumentException(
+                    "Накопительная ставка не может быть отрицательной, а у вас: " + rate
+            );
+        }
+    }
+
     public void setCreditLimit(int creditLimit) {
         if (creditLimit >= 0) {
             this.creditLimit = creditLimit;
