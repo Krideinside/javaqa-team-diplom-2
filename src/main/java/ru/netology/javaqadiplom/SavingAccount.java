@@ -114,4 +114,12 @@ public class SavingAccount extends Account {
     public int getMaxBalance() {
         return maxBalance;
     }
+
+    public void setMinBalance(int minBalance) {
+        this.minBalance = minBalance;
+    }
+
+    public void setMaxBalance(int maxBalance) {
+        this.maxBalance = maxBalance;
+    }
 }
