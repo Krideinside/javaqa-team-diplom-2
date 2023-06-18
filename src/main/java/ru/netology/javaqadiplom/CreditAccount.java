@@ -20,7 +20,7 @@ public class CreditAccount extends Account {
     public CreditAccount(int initialBalance, int creditLimit, int rate) {
         if (initialBalance < 0) {
             throw new IllegalArgumentException(
-                    "Баланс не может быть отрицательной, а у вас: " + initialBalance
+                    "Баланс не может быть отрицательным, а у вас: " + initialBalance
             );
         }
         if (creditLimit < 0) {
@@ -104,4 +104,9 @@ public class CreditAccount extends Account {
     public int getCreditLimit() {
         return creditLimit;
     }
+
+    public void setCreditLimit(int creditLimit) {
+        if (creditLimit > 0) {
+            this.creditLimit = creditLimi
+
 }
