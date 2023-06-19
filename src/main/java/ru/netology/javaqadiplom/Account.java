@@ -12,6 +12,24 @@ public class Account {
         return false;
     }
 
+//    public boolean pay(int amount) {
+//        if (amount <= 0) {
+//            return false;
+//        } else {
+//            balance = balance - amount;
+//            return true;
+//        }
+//    }
+//
+//    public boolean add(int amount) {
+//        if (amount <= 0) {
+//            return false;
+//        } else {
+//            balance = balance + amount;
+//            return true;
+//        }
+//    }
+
     public int yearChange() {
         return 0;
     }
