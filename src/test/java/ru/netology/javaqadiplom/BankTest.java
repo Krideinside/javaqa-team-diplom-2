@@ -13,7 +13,7 @@ public class BankTest {
         Account to = new Account();
         to.balance = 0;
 
-       bank.transfer(from, to, 1_000);
+        bank.transfer(from, to, 1_000);
 
         Assertions.assertEquals(4_000, from.getBalance());
     }
