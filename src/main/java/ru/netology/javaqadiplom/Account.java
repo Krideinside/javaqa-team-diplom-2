@@ -4,30 +4,12 @@ public class Account {
     protected int balance;
     protected int rate;
 
-//    public boolean pay(int amount) {
-//        return false;
-//    }
-//
-//    public boolean add(int amount) {
-//        return false;
-//    }
-
     public boolean pay(int amount) {
-        if (amount <= 0) {
-            return false;
-        } else {
-            balance = balance - amount;
-            return true;
-        }
+        return false;
     }
 
     public boolean add(int amount) {
-        if (amount <= 0) {
-            return false;
-        } else {
-            balance = balance + amount;
-            return true;
-        }
+        return false;
     }
 
     public int yearChange() {
