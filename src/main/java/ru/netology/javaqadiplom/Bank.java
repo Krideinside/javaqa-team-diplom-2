@@ -23,8 +23,7 @@ public class Bank extends Account {
         if (from.balance < amount) {
             return false;
         }
-        if (to.add(amount) && from.pay(amount)) {
-            from.pay(amount);
+        if (from.pay(amount)) {
             to.add(amount);
             return true;
         }
