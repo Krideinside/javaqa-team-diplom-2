@@ -2,6 +2,7 @@ package ru.netology.javaqadiplom;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+
 public class BankTest {
 
     @Test
@@ -210,7 +211,7 @@ public class BankTest {
         );
 
         Bank bank = new Bank();
-//        Assertions.assertEquals(false, bank.transfer(acc1, acc2, 3_000));
+        Assertions.assertEquals(false, bank.transfer(acc1, acc2, 3_000));
         Assertions.assertEquals(9_000, acc1.getBalance());
         Assertions.assertEquals(3_000, acc2.getBalance());
     }
